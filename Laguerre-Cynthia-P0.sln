@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarnBL", "YarnBL\YarnBL.csproj", "{D83ECE94-FB8A-46EF-AB4D-606203A4682A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarnDL", "YarnDL\YarnDL.csproj", "{0D2E52F4-8A03-47C6-A985-A2249369E5AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarnModels", "YarnModels\YarnModels.csproj", "{0C1829D5-D632-4D5E-956F-3BF8CA1D3151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarnUI", "YarnUI\YarnUI.csproj", "{7BE03B18-6552-4B11-AB89-C3FDA4F8A99F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D83ECE94-FB8A-46EF-AB4D-606203A4682A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83ECE94-FB8A-46EF-AB4D-606203A4682A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83ECE94-FB8A-46EF-AB4D-606203A4682A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83ECE94-FB8A-46EF-AB4D-606203A4682A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D2E52F4-8A03-47C6-A985-A2249369E5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D2E52F4-8A03-47C6-A985-A2249369E5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D2E52F4-8A03-47C6-A985-A2249369E5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D2E52F4-8A03-47C6-A985-A2249369E5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C1829D5-D632-4D5E-956F-3BF8CA1D3151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C1829D5-D632-4D5E-956F-3BF8CA1D3151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C1829D5-D632-4D5E-956F-3BF8CA1D3151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C1829D5-D632-4D5E-956F-3BF8CA1D3151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE03B18-6552-4B11-AB89-C3FDA4F8A99F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE03B18-6552-4B11-AB89-C3FDA4F8A99F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE03B18-6552-4B11-AB89-C3FDA4F8A99F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE03B18-6552-4B11-AB89-C3FDA4F8A99F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
