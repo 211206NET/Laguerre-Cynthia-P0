@@ -68,6 +68,7 @@ public class MainMenu : IMenu
                         {
                             Console.WriteLine(ex.Message);
                             Log.Error(ex.Message);
+                            goto case "1";
                         }
             
                     break;
