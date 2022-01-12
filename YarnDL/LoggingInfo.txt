@@ -1,3 +1,38 @@
 2022-01-11 20:32:40.144 -05:00 [INF] An lineitem with id 5299 and quantity 4 was add to Cart.
 2022-01-11 20:32:50.260 -05:00 [INF] An lineitem with id 3555 and quantity 5 was add to Cart.
 2022-01-11 20:33:04.158 -05:00 [INF] An order item with id 66282 store Id 9464 and customer Id 61423 of amount 31.30 was added.
+2022-01-11 20:44:45.973 -05:00 [INF] A customer with ID 42492 and name Jimmy was added
+2022-01-11 20:45:24.381 -05:00 [INF] A customer with ID 54 and name jimm was added
+2022-01-11 20:45:43.237 -05:00 [INF] An lineitem with id 4350 and quantity 5 was add to Cart.
+2022-01-11 20:45:49.714 -05:00 [INF] An lineitem with id 6416 and quantity 6 was add to Cart.
+2022-01-11 20:45:51.297 -05:00 [INF] Line Item with ID 4350 order ID was changed to 55346
+2022-01-11 20:45:51.332 -05:00 [INF] Line Item with ID 6416 order ID was changed to 55346
+2022-01-11 20:45:51.373 -05:00 [INF] An order item with id 55346 store Id 9464 and customer Id 54 of amount 38.20 was added.
+2022-01-11 20:46:26.573 -05:00 [INF] An lineitem with id 3704 and quantity 10 was add to Cart.
+2022-01-11 20:46:40.395 -05:00 [INF] An lineitem with id 3042 and quantity 5 was add to Cart.
+2022-01-11 20:46:43.543 -05:00 [INF] Line Item with ID 3704 order ID was changed to 41064
+2022-01-11 20:46:43.580 -05:00 [INF] Line Item with ID 3042 order ID was changed to 41064
+2022-01-11 20:46:43.617 -05:00 [INF] An order item with id 41064 store Id 9464 and customer Id 54 of amount 52.25 was added.
+2022-01-11 20:48:45.674 -05:00 [INF] An product with id 51737 name Red Wool Yarn that costs 3.50 was added.
+2022-01-11 20:48:48.671 -05:00 [INF] An inventory item with id 51738 store Id 24183 and product name Wool Yarn of amount 25 was added.
+2022-01-11 20:49:01.492 -05:00 [INF] Going outside the selection range
+2022-01-11 20:49:05.863 -05:00 [INF] The item with Inventory ID 51738 was increase to Quantity 30
+2022-01-11 20:49:33.591 -05:00 [INF] An product with id 8669 name Breatheable and wonderful Cotton Yarn that costs 4.50 was added.
+2022-01-11 20:49:37.846 -05:00 [INF] An inventory item with id 8670 store Id 24183 and product name Cotton Yarn of amount 20 was added.
+2022-01-11 20:50:30.645 -05:00 [INF] An product with id 28865 name Purple Silky Yarn that costs 5.00 was added.
+2022-01-11 20:50:33.510 -05:00 [INF] An inventory item with id 28866 store Id 38836 and product name Silky Yarn of amount 20 was added.
+2022-01-11 20:50:53.815 -05:00 [INF] An product with id 28550 name Blue Thick Yarn that costs 5.40 was added.
+2022-01-11 20:50:58.114 -05:00 [INF] An inventory item with id 28551 store Id 38836 and product name Thick Yarn of amount 15 was added.
+2022-01-11 20:52:07.979 -05:00 [INF] An product with id 683 name blue Yarn that costs 2.00 was added.
+2022-01-11 20:52:10.803 -05:00 [INF] An inventory item with id 684 store Id 63669 and product name Yarn of amount 15 was added.
+2022-01-11 20:55:02.652 -05:00 [INF] A customer with ID 34693 and name Erica was added
+2022-01-11 20:55:44.102 -05:00 [INF] An lineitem with id 9391 and quantity 5 was add to Cart.
+2022-01-11 20:55:54.855 -05:00 [INF] An lineitem with id 8070 and quantity 2 was add to Cart.
+2022-01-11 20:56:04.399 -05:00 [INF] Line Item with ID 9391 order ID was changed to 14105
+2022-01-11 20:56:04.434 -05:00 [INF] Line Item with ID 8070 order ID was changed to 14105
+2022-01-11 20:56:04.706 -05:00 [INF] An order item with id 14105 store Id 24183 and customer Id 34693 of amount 29.50 was added.
+2022-01-11 20:58:50.699 -05:00 [INF] An product with id 48247 name dark red silky that costs 4.00 was added.
+2022-01-11 20:59:00.808 -05:00 [INF] An inventory item with id 48248 store Id 63669 and product name silky of amount 15 was added.
+2022-01-11 20:59:44.132 -05:00 [INF] Going outside the selection range
+2022-01-11 20:59:44.133 -05:00 [INF] Going outside the selection range
+2022-01-11 20:59:49.418 -05:00 [INF] The item with Inventory ID 48248 was increase to Quantity 20

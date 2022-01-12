@@ -47,7 +47,7 @@ public class InventoryMenu : IMenu
 
                     Product newProduct = new Product();
 
-                    Console.WriteLine("What item to do you add to the Stores");
+                    Console.WriteLine($"What item to do you add to {CurrentStore.Name}");
                     string? productName = Console.ReadLine();
                     newProduct.ProductName = productName ?? "";
                     Console.WriteLine($"Please enter {productName}'s color");
@@ -120,12 +120,12 @@ public class InventoryMenu : IMenu
                         {
                             Console.WriteLine("Select a product");
                             Console.WriteLine($"[{i}] {allInventories[i].ToString()}");
-                            Log.Information("Going outside the selection range");
+                            
                         }
                         }
                     catch(IndexOutOfRangeException ex)
                     {
-                        
+                        Log.Information("Going outside the selection range");
                         Console.WriteLine(ex.Message);
                         Log.Error(ex.Message);
                         goto case "3";

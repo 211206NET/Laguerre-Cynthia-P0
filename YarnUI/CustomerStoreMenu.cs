@@ -32,7 +32,7 @@ public class CustomerStoreMenu : IMenu
             Console.WriteLine("----------------------------------");
             Console.WriteLine("Enter [1] to browse CYF's collection");
             Console.WriteLine("Enter [2] if you would like to view existing orders");
-            Console.WriteLine("Enter [r] to return to the main menu");
+            Console.WriteLine("Enter [x] to return to the main menu");
             string? input = Console.ReadLine();
 
             switch(input)
@@ -85,7 +85,7 @@ public class CustomerStoreMenu : IMenu
 
                     break;
 
-                case "r":
+                case "x":
                     exit = true;
                 break;
 
