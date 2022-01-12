@@ -64,6 +64,7 @@ public class CYFBL : IBL
         
         return _dl.GetAllStoreFronts();
     }
+
     /// <summary>
     /// Adds new storefront to the list
     /// </summary>
@@ -100,6 +101,11 @@ public class CYFBL : IBL
         _dl.AddLineItem(lineItemToAdd);
     }
 
+/// <summary>
+/// Edits the OrderID number from the lineItem
+/// </summary>
+/// <param name="lineItemID">lineItem object</param>
+/// <param name="orderID">order object to be changed</param>
     public void EditLineItem(int lineItemID, int orderID)
     {
         _dl.EditLineItem(lineItemID, orderID);

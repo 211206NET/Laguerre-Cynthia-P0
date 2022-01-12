@@ -2,6 +2,7 @@ namespace UI;
 
 public class StoreOrdersMenu : IMenu
 {
+    internal StoreFront CurrentStore {get; set;}
     private IBL _bl;
 
     public StoreOrdersMenu(IBL bl)
@@ -11,61 +12,78 @@ public class StoreOrdersMenu : IMenu
 
     public void Start()
     {
-        Console.WriteLine(" ");
-        Console.WriteLine("How would you like to view the Store's orders?");
-        Console.WriteLine("Enter [1] for newer orders to older orders");
-        Console.WriteLine("Enter [2] for older orders to newer orders");
-        Console.WriteLine("Enter [3] for least expensive orders to most expensive orders");
-        Console.WriteLine("Enter [4] for most expensive orders orders to least expensive orders");
-        Console.WriteLine("Enter [x] to return to Manager Menu");
+        
+        _bl.GetAllOrders();
+        _bl.GetAllLineItems();
+        List<Order> allStoreOrders = CurrentStore.Orders!;
 
         bool exit = false;
 
         while(!exit)
         {
+            if(allStoreOrders.Count == 0)
+            {
+                Console.WriteLine("There are no orders available");
+                MenuFactory.GetMenu("manager").Start();
 
-        Console.WriteLine(" ");
-        Console.WriteLine("How would you like to view the Store's orders?");
-        Console.WriteLine("Enter [1] for newer orders to older orders");
-        Console.WriteLine("Enter [2] for older orders to newer orders");
-        Console.WriteLine("Enter [3] for least expensive orders to most expensive orders");
-        Console.WriteLine("Enter [4] for most expensive orders orders to least expensive orders");
-        Console.WriteLine("Enter [x] to return to Manager Menu");
+            }
+            else
+            {
+                foreach(Order order in allStoreOrders)
+                {
+                    Console.WriteLine($" Order: {order.OrderDate} ");
+                    Console.WriteLine($"ID: {order.ID}");
+                    
+                    foreach(LineItem item in order.LineItems!)
+                    {
+                        Console.WriteLine($"Name {item.ProductName} Price: {item.ProductPrice} Quantity: {item.Quantity}");
+                    }
+                    Console.WriteLine($"Total: ${order.Total}");
+                    Console.WriteLine("-----------------------");
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine("How would you like to view the Store's orders?");
+                Console.WriteLine("Enter [1] for newer orders to older orders");
+                Console.WriteLine("Enter [2] for older orders to newer orders");
+                Console.WriteLine("Enter [3] for least expensive orders to most expensive orders");
+                Console.WriteLine("Enter [4] for most expensive orders orders to least expensive orders");
+                Console.WriteLine("Enter [x] to return to Manager Menu");
 
-        string? input = Console.ReadLine();
+                string? input = Console.ReadLine();
 
-        //select store then 
-        // List<StoreOrder> allOrders = store.AllOrders;
-        //if there are no orders state that
-        //allStoreOrder.Sort
-
-        switch(input)
-        {
-            case "1":
-                Console.WriteLine("for newer orders to older orders");
                 
-            break;
+                switch(input)
+                {
+                    case "1":
+                        Console.WriteLine("for newer orders to older orders");
+                        allStoreOrders.Sort((x, y) => y.OrderDate!.CompareTo(x.OrderDate));
+                    break;
 
-            case "2":
-                Console.WriteLine("for older orders to newer orders");
-            break;
+                    case "2":
+                        Console.WriteLine("for older orders to newer orders");
+                        allStoreOrders.Sort((x, y) => x.OrderDate!.CompareTo(y.OrderDate));
+                    break;
 
-            case "3":
-                Console.WriteLine("for least expensive orders to most expensive orders");
-            break;
+                    case "3":
+                        Console.WriteLine("for least expensive orders to most expensive orders");
+                        allStoreOrders.Sort((x, y) => x.Total.CompareTo(y.Total));
+                    break;
 
-            case "4":
-                Console.WriteLine("for most expensive orders orders to least expensive orders");
-            break;
+                    case "4":
+                        Console.WriteLine("for most expensive orders orders to least expensive orders");
+                        allStoreOrders.Sort((x, y) => y.Total.CompareTo(x.Total));
+                    break;
 
-            case "x":
-                exit = true;
-            break;
+                    case "x":
+                        exit = true;
+                    break;
 
-            default:
-                Console.WriteLine("Im sorry I don't understand what that means. Please try again");
-            break;
-        }
+                    default:
+                        Console.WriteLine("Im sorry I don't understand what that means. Please try again");
+                    break;
+                }
+
+            }
         }
 
     }

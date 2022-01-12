@@ -1,0 +1,3 @@
+2022-01-11 20:32:40.144 -05:00 [INF] An lineitem with id 5299 and quantity 4 was add to Cart.
+2022-01-11 20:32:50.260 -05:00 [INF] An lineitem with id 3555 and quantity 5 was add to Cart.
+2022-01-11 20:33:04.158 -05:00 [INF] An order item with id 66282 store Id 9464 and customer Id 61423 of amount 31.30 was added.

@@ -15,11 +15,19 @@ public class CustomerStoreMenu : IMenu
     {
         //To select a restaurant
         bool exit = false;
-        List<Customer> allCustomers = _bl.GetAllCustomers();
+        
         List<StoreFront> allStoreFronts = _bl.GetAllStoreFronts();
 
         while(!exit)
         {
+            List<Customer> allCustomers = _bl.GetAllCustomers();
+            foreach(Customer cust in allCustomers)
+            {
+                if(CurrentCustomer.Email == cust.Email)
+                {
+                    CurrentCustomer = cust;
+                }
+            }
             Console.WriteLine("\nWhat is the purpose of your visit?");
             Console.WriteLine("----------------------------------");
             Console.WriteLine("Enter [1] to browse CYF's collection");
@@ -66,10 +74,8 @@ public class CustomerStoreMenu : IMenu
                             else if(CurrentCustomer.Orders.Count > 0)
                             {
                                 CustomerOrdersMenu menu = (CustomerOrdersMenu) MenuFactory.GetMenu("customerorder");
-                                // menu.CurrentStore = selectedStoreFront;
                                 menu.CurrentCustomer = CurrentCustomer; 
                                 menu.Start();
-                                MenuFactory.GetMenu("customerorder").Start();
                             }
                     }
                     catch(NullReferenceException nullReferenceException)

@@ -75,6 +75,7 @@ public class DBRepo : IRepo
         cmdAddCust.Parameters.AddWithValue("@email", customerToAdd.Email);
         cmdAddCust.Parameters.AddWithValue("@password", customerToAdd.Password);
         cmdAddCust.ExecuteNonQuery();
+        Log.Information($"A customer with ID {customerToAdd.ID} and name {customerToAdd.Name} was added");
         connection.Close();
     }
 
@@ -86,21 +87,24 @@ public class DBRepo : IRepo
         string storeSelect = "SELECT * From StoreFront";
         string inventSelect = "SELECT * FROM Inventory";
         string orderSelect = "SELECT * FROM Orders";
+        string lineItemSelect = "SELECT * FROM LineItem";
 
         DataSet CYFSet = new DataSet();
 
         using SqlDataAdapter storeAdapter = new SqlDataAdapter(storeSelect, connection);
         using SqlDataAdapter inventAdapter = new SqlDataAdapter(inventSelect, connection);
         using SqlDataAdapter orderAdapter = new SqlDataAdapter(orderSelect, connection);
-
+        using SqlDataAdapter lineItemAdapter = new SqlDataAdapter(lineItemSelect, connection);
 
         storeAdapter.Fill(CYFSet, "StoreFront");
         inventAdapter.Fill(CYFSet, "Inventory");
         orderAdapter.Fill(CYFSet, "Orders");
+        lineItemAdapter.Fill(CYFSet, "LineItem");
 
         DataTable? storeFrontTable = CYFSet.Tables["StoreFront"];
         DataTable? inventoryTable = CYFSet.Tables["Inventory"];
         DataTable? ordersTable = CYFSet.Tables["Orders"];
+        DataTable? lineItemTable = CYFSet.Tables["LineItem"];
 
         if(storeFrontTable != null)
         {
@@ -116,6 +120,15 @@ public class DBRepo : IRepo
                     stores.Orders = ordersTable.AsEnumerable().Where(r => (int) r["StoreFrontId"] == stores.ID).Select(
                         r => new Order(r)
                     ).ToList();
+                    if(lineItemTable != null)
+                    {
+                        foreach(Order storeOrder in stores.Orders!)
+                        {
+                            storeOrder.LineItems = lineItemTable!.AsEnumerable().Where(r => (int) r["OrdersId"] == storeOrder.ID).Select(
+                            r => new LineItem(r)
+                        ).ToList();
+                        }
+                    }
                 }
                 allStoreFronts.Add(stores);
             }
@@ -135,7 +148,7 @@ public class DBRepo : IRepo
         cmdAddStoreFront.Parameters.AddWithValue("@city", storeFrontToAdd.City);
         cmdAddStoreFront.Parameters.AddWithValue("@state", storeFrontToAdd.State);
         cmdAddStoreFront.ExecuteNonQuery();
-        Log.Information($"A store  with id {storeFrontToAdd.ID} store name {storeFrontToAdd.Name} was added.");
+        Log.Information($"A store  with Id {storeFrontToAdd.ID} store name {storeFrontToAdd.Name} was added.");
         connection.Close();
     }
 
@@ -335,6 +348,7 @@ public class DBRepo : IRepo
         lineItemcmd.Parameters.AddWithValue("@LineItemID", LineItemID);
         lineItemcmd.Parameters.AddWithValue("@orderID", OrderID);
         lineItemcmd.ExecuteNonQuery();
+        Log.Information($"Line Item with ID {LineItemID} order ID was changed to {OrderID}");
         connection.Close();
     }
 
@@ -349,6 +363,7 @@ public class DBRepo : IRepo
         inventcmd.Parameters.AddWithValue("InventoryId", InventoryID);
         inventcmd.Parameters.AddWithValue("@qty", addQuantity);
         inventcmd.ExecuteNonQuery();
+        Log.Information($"The item with Inventory ID {InventoryID} was increase to Quantity {addQuantity}");
         connection.Close();
         
     }

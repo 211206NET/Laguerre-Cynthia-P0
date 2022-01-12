@@ -57,9 +57,9 @@ public class InventoryMenu : IMenu
                     string? description = Console.ReadLine();
                     newProduct.Description = description ?? "";
                     Console.WriteLine($"Please enter {productName}'s price");
-                    price = decimal.Parse(Console.ReadLine());
-                    // string? price1 = Console.ReadLine();
-                    // bool priceparse = decimal.TryParse(price1, out price);
+                    // price = decimal.Parse(Console.ReadLine());
+                    string? price1 = Console.ReadLine();
+                    bool priceparse = decimal.TryParse(price1, out price);
                     newProduct.Price = price;
                     Random ran = new Random();
                     id = ran.Next(100000);
@@ -87,9 +87,8 @@ public class InventoryMenu : IMenu
 
                     foreach (Inventory invent in  allInventories)
                     {
-                        Console.WriteLine($"\n Product ID: {invent.ProductID}  Name: {invent.ProductName} Price: {invent.ProductPrice} Quantity: {invent.Quantity} \n----------------------------");
+                        Console.WriteLine($"\n Product ID: {invent.ProductID}  Name: {invent.ProductColor} {invent.ProductName} Price: {invent.ProductPrice} Quantity: {invent.Quantity} \n----------------------------");
                     }
-                    //CurrentStore.Inventories = newInventory;
 
 
                 break;
@@ -121,8 +120,17 @@ public class InventoryMenu : IMenu
                         {
                             Console.WriteLine("Select a product");
                             Console.WriteLine($"[{i}] {allInventories[i].ToString()}");
-                            //Log.Information("Going outside the selection range");
+                            Log.Information("Going outside the selection range");
                         }
+                        }
+                    catch(IndexOutOfRangeException ex)
+                    {
+                        
+                        Console.WriteLine(ex.Message);
+                        Log.Error(ex.Message);
+                        goto case "3";
+                        
+                    }
                         
                         string? selection1 = Console.ReadLine();
                         int selection;
@@ -134,13 +142,8 @@ public class InventoryMenu : IMenu
                         int addQuantity; 
                         Boolean selectionparse2 = Int32.TryParse(selection2, out addQuantity);
                         _bl.AddMoreInventory(inventoryID, addQuantity);
-
-                    }
-                    catch(IndexOutOfRangeException ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                        Log.Error(ex.Message);
-                    }
+                        _bl.GetAllInventories();
+                        Console.WriteLine($"The new quantity of {allInventories[selection].ProductColor} {allInventories[selection].ProductName} is {addQuantity}");
                         
                         
                 break;

@@ -5,7 +5,7 @@ public class Order
     public Order() {}
 
     public int ID { get; set; }
-    public DateTime OrderDate { get; set; }
+    public string OrderDate { get; set; }
     public int CustomerID { get; set; }
     public int StoreFrontID { get; set; }
     public List<LineItem>? LineItems { get; set; }
@@ -32,6 +32,7 @@ public class Order
     {
         ID = (int) row["Id"];
         StoreFrontID = (int) row["StoreFrontId"];
+        OrderDate = row["OrderDate"].ToString();
         CustomerID = (int) row["CustomerId"];
         Total = (decimal) row["Total"];
     }

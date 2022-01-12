@@ -27,7 +27,7 @@ public class ManagerMenu : IMenu
                         Console.WriteLine("~Enter [3] to view inventory of all stores~");
                         Console.WriteLine("~Enter [4] if you want update a store's inventory");
                         Console.WriteLine("~Enter [5] if you want to view a store's orders~");
-                        Console.WriteLine("~Enter [return], if you want to return to the Main Menu~");
+                        Console.WriteLine("~Enter [x], if you want to return to the Main Menu~");
                         
                         string? name, address, city, state;
                         int id;
@@ -150,12 +150,16 @@ public class ManagerMenu : IMenu
                                                 Boolean selectionparse = Int32.TryParse(selection1, out selection);
                                                 StoreFront selectedStoreFront = allStoreFronts[selection];
                                                 Console.WriteLine($"You've choosen {selectedStoreFront.Name}");
-                                                MenuFactory.GetMenu("storeorder").Start();
+                                                StoreOrdersMenu menu = (StoreOrdersMenu) MenuFactory.GetMenu("storeorder");
+                                                menu.CurrentStore = selectedStoreFront;
+                                                // menu.CurrentCustomer = currentCustomer; 
+                                                menu.Start();
+                                                //MenuFactory.GetMenu("storeorder").Start();
                                                 
                                         }
                                 break;
 
-                                case "return":
+                                case "x":
                                         exit = true;
                                 break;
 

@@ -89,13 +89,13 @@ public class CustomerMenu : IMenu
                         prelimCart.ID = cartid; 
                         prelimCart.InventoryID = allInventories[selectedprod].ID;
                         decimal totalProdPrice = (allInventories[selectedprod].ProductPrice)*(prelimCart.Quantity);
-                        Console.WriteLine($"Cart: \nBaricode: {prelimCart.ID} Product: {prelimCart.ProductColor} {prelimCart.ProductName} qty: {prelimCart.Quantity} product total: {totalProdPrice}");
+                        Console.WriteLine($" \nBaricode: {prelimCart.ID} Product: {prelimCart.ProductColor} {prelimCart.ProductName} qty: {prelimCart.Quantity} product total: {totalProdPrice}");
                         shoppingCart.Add(prelimCart);
                         _bl.AddLineItem(prelimCart);
-
+                        ;
                         foreach(LineItem item in shoppingCart)
                         {
-                            Console.WriteLine(item.ToString());
+                            Console.WriteLine($"CART: item: {item.ProductColor} {item.ProductName} Quantity:{item.Quantity}");
                         }
 
                         Console.WriteLine("Would you like to add more to your order? Enter yes. If you want to check out enter no.");
@@ -106,7 +106,7 @@ public class CustomerMenu : IMenu
                                 Random ran = new Random();
                                 int id = ran.Next(100000);
                                 newOrder.ID = id;
-                                newOrder.OrderDate = DateTime.Now;
+                                newOrder.OrderDate = DateTime.Now.ToString();
                                 Console.WriteLine($"{newOrder.OrderDate}");
                                 foreach(LineItem item in shoppingCart)
                                 {
@@ -116,12 +116,12 @@ public class CustomerMenu : IMenu
                                 newOrder.LineItems = shoppingCart;
                                 
                                 newOrder.Total = newOrder.CalculateTotal();
-                                Console.WriteLine($"You're total is {newOrder.Total}");
+                                Console.WriteLine($"Your total is {newOrder.Total}");
                                 //newOrder.OrderDate = DateTime.Now;
                                 newOrder.CustomerID = CurrentCustomer.ID;
                                 newOrder.StoreFrontID = CurrentStore.ID;
-                                CurrentStore.Orders!.Add(newOrder);
-                                CurrentCustomer.Orders!.Add(newOrder);
+                                //CurrentStore.Orders!.Add(newOrder);
+                                //CurrentCustomer.Orders!.Add(newOrder);
                                 _bl.AddOrder(newOrder);
                                 checkOut = true;
                             }
